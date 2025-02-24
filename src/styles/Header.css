@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    width: 100vw;
+}
+
+#favorites {
+    background-color: #9A9A9A;
+    width: 50%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#search {
+    background-color: #D9D9D9;
+    width: 50%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+

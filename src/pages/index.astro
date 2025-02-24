@@ -1,11 +1,40 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
+import "../styles/globalStyles.css" // apprarently you can only import files in this way when working on src 
+import "../styles/Header.css"
+import "../styles/Card.css"
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Biblioteca</title>
+	</head>
+	<body>
+		<div class="header">
+			<h1 id="favorites">Favorites</h1>
+			<h1 id="search">Search</h1>
+		</div>
+
+		<div class="container">
+			<div class="card">
+				<img src="../../public/sentido.png" alt="mika pikazo"> 
+				<h2> Viktor FrankL</h2>
+				<h2> El hombre en busca de sentido</h2>
+				<img class="corazon" src="../../public/corazon.svg" alt="Corazon">
+
+			
+			</div>
+			<div class="card"> </div>
+			<div class="card"> </div>
+			<div class="card"> </div>
+			<div class="card"> </div>
+			<div class="card"> </div>
+			<div class="card"> </div>
+			<div class="card"> </div>
+
+		</div>
+	</body>
+</html>
