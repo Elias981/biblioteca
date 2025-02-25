@@ -2,9 +2,10 @@ body {
     background-color: #9A9A9A;
     color: rgb(255, 255, 255);
     font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
 }
 
-.separation {
-    height: 100px;
-}
 

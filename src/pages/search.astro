@@ -2,6 +2,7 @@
 import "../styles/globalStyles.css" // apprarently you can only import files in this way when working on src 
 import "../styles/Header.css"
 import "../styles/Card.css"
+import "../styles/searchConfigContainer.css"
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
@@ -14,9 +15,20 @@ import "../styles/Card.css"
 	</head>
 	<body>
 		<div class="header">
-			<a id="favorites" href="/" style="background-color: #9A9A9A;">Favorites</a> 
-			<a id="search" href="/search/" style="background-color: #ffffff;">Search</a> 
+			<a id="favorites" href="/" style="background-color: #ffffff;">Favorites</a> 
+			<a id="search" href="/search/" style="background-color: #9A9A9A;">Search</a> 
 		</div>
+
+        <div class="searcher-config-container">
+            <img src="../../public/SearchConfig.svg" 
+            style="background-color: transparent; width: 30px; height: 30px;"
+            alt="configurationIcon">
+            <div>
+                <input style="border-radius: 25px;" type="text" placeholder="Search for a book">
+                <button>Search</button>
+            </div>
+     
+        </div>
 
 		<div class="container">
 
