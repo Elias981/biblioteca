@@ -20,9 +20,6 @@ import "../styles/searchConfigContainer.css"
 		</div>
 
         <div class="searcher-config-container">
-            <img src="../../public/SearchConfig.svg" 
-            style="background-color: transparent; width: 30px; height: 30px;"
-            alt="configurationIcon">
             <div>
                 <input style="border-radius: 25px;" type="text" placeholder="Search for a book">
                 <button>Search</button>
@@ -43,14 +40,88 @@ import "../styles/searchConfigContainer.css"
 				</div>
 			</div>
 
-			<div class="card"> </div>
-			<div class="card"> </div>
-			<div class="card"> </div>
-			<div class="card"> </div>
-			<div class="card"> </div>
-			<div class="card"> </div>
-			<div class="card"> </div>
 
 		</div>
+
+
+		<script is:inline>
+
+			var preURL = "https://openlibrary.org/search.json?q=";
+
+			var search = document.querySelector("input");
+			var searchButton = document.querySelector("button");
+
+			searchButton.addEventListener("click", function() {
+				
+				let completeURL = preURL + search.value;
+
+				console.log(completeURL);
+
+				fetch(completeURL)
+					.then(response => response.json())
+					.then(data => {
+
+						for (let i = 0; i < data.docs.length; i++) {
+							console.log(data.docs[i].author_name[i]);
+							console.log(data.docs[i].title);
+							console.log(data.docs[i].cover_edition_key);
+
+							let olid = data.docs[i].cover_edition_key + "-L.jpg";
+							let coverURL = "https://covers.openlibrary.org/b/olid/" + olid;
+							console.log(coverURL);
+
+							var container = document.querySelector(".container");
+							var div = document.createElement("div");
+							div.classList.add("card");
+							container.appendChild(div);
+
+
+							var img = document.createElement("img");
+							img.src = coverURL;
+							img.alt = data.docs[i].title;
+							div.appendChild(img);
+
+							var informationContainer = document.createElement("div");
+							informationContainer.classList.add("information-container");
+							div.appendChild(informationContainer);
+
+							var div2 = document.createElement("div");
+							informationContainer.appendChild(div2);	
+
+							var h2 = document.createElement("h2");	
+							h2.textContent = data.docs[i].author_name[i];
+							div2.appendChild(h2);
+
+							var h2 = document.createElement("h2");
+							h2.textContent = data.docs[i].title;
+							div2.appendChild(h2);
+						}
+						
+ 
+	
+						console.log(data)})
+					.catch(error => console.error('Error:', error));
+
+					
+			
+			});
+			
+			
+		</script>
+
+<!--	<div class="card">
+				<img src="URL" alt="title"> 
+				<div class="information-container">
+					<div>
+						<h2> Viktor FrankL</h2>
+						<h2> El hombre en busca de sentido</h2>
+					</div>
+					<img class="corazon" src="../../public/corazon.svg" alt="Corazon">
+				</div>
+			</div>
+
+							
+
+					
 	</body>
 </html>
